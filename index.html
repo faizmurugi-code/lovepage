@@ -17,7 +17,7 @@
       color: #fff;
       font-family: 'Courier New', Courier, monospace;
       text-align: center;
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     h1 {
@@ -81,63 +81,34 @@
       100% { transform: none; opacity: 1; }
     }
 
-    #overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.95);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 999;
+    .music-player {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 350px;
     }
 
-    #overlay button {
-      background: #0ff;
+    iframe {
+      width: 100%;
+      height: 120px;
       border: none;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      font-family: inherit;
-      font-weight: bold;
-      color: #000;
-      border-radius: 8px;
-      cursor: pointer;
-      box-shadow: 0 0 15px #0ff;
-      transition: 0.3s;
-    }
-    #overlay button:hover {
-      background: #fff;
-      color: #0ff;
     }
   </style>
 </head>
 <body>
-  <div id="overlay">
-    <h2>💖 Ready to feel the vibe? 💖</h2>
-    <button onclick="startLove()">Play</button>
-  </div>
-
   <h1>❤️ LOVE.EXE INSTALLED ❤️</h1>
   <p>System Error: Brain not responding... Heart overloaded when you’re around.</p>
   <div class="typing">💾 User: <strong>Faiz Kanana</strong> has hacked my heart permanently.</div>
-  
-  <!-- Your photo -->
-  <img src="kanana.jpg" alt="Faiz Kanana" onerror="this.style.display='none'">
-  
-  <!-- Song hosted on Google Drive -->
-  <audio id="bgMusic" loop>
-    <source src="https://docs.google.com/uc?export=download&id=1KemttAbgmgXluAl0yjouaaWxSGchxfIy#t=60" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
 
-  <script>
-    function startLove() {
-      document.getElementById("overlay").style.display = "none";
-      const music = document.getElementById("bgMusic");
-      music.currentTime = 60; // jump to trending part
-      music.play();
-    }
-  </script>
+  <img src="kanana.jpg" alt="Faiz Kanana" onerror="this.style.display='none'">
+
+  <!-- SoundCloud Embed -->
+  <div class="music-player">
+    <iframe 
+      scrolling="no" 
+      frameborder="no" 
+      allow="autoplay" 
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2181843471&color=%2300ffff&auto_play=true&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
+    </iframe>
+  </div>
 </body>
 </html>
