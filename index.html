@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You Hacked My Heart</title>
+  <title>For Faiz Kanana ❤️</title>
   <style>
     body {
       margin: 0;
@@ -12,113 +12,138 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: #000;
-      color: #fff;
+      background: #0d0d0d;
+      overflow: hidden;
       font-family: 'Courier New', Courier, monospace;
+      color: white;
+    }
+
+    /* Centered container */
+    .container {
       text-align: center;
-      overflow: hidden;
+      opacity: 0;
+      transition: opacity 1.5s ease;
     }
-    .hidden {
-      display: none;
-    }
-    button {
-      padding: 15px 30px;
-      background: #0ff;
-      color: #000;
+
+    /* Start button */
+    #startBtn {
+      padding: 20px 50px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
       border: none;
-      border-radius: 30px;
-      font-size: 1.2em;
+      border-radius: 50px;
       cursor: pointer;
-      box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
-      transition: all 0.3s ease;
-    }
-    button:hover {
-      background: #fff;
-      box-shadow: 0 0 20px #fff, 0 0 40px #0ff;
-    }
-    h1 {
-      font-size: 1.5em;
-      animation: glitch 1.5s infinite;
       text-transform: uppercase;
+      letter-spacing: 2px;
+      box-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
+      animation: pulse 2s infinite;
+      transition: transform 0.2s ease;
     }
-    @keyframes glitch {
-      0% { text-shadow: 2px 2px red, -2px -2px blue; }
-      20% { text-shadow: -2px 0 red, 2px -2px blue; }
-      40% { text-shadow: 2px -2px red, -2px 2px blue; }
-      60% { text-shadow: -2px 2px red, 2px 0 blue; }
-      80% { text-shadow: 2px 2px red, -2px -2px blue; }
-      100% { text-shadow: none; }
+
+    #startBtn:hover {
+      transform: scale(1.1);
     }
-    .typing {
-      border-right: 2px solid #fff;
-      white-space: nowrap;
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 15px rgba(255, 65, 108, 0.6); }
+      50% { box-shadow: 0 0 35px rgba(255, 75, 43, 1); }
+      100% { box-shadow: 0 0 15px rgba(255, 65, 108, 0.6); }
+    }
+
+    /* Glitch text effect */
+    .glitch {
+      font-size: 2rem;
+      font-weight: bold;
+      position: relative;
+      display: inline-block;
+      margin-top: 20px;
+      animation: glitch 1s infinite;
+    }
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
       overflow: hidden;
-      width: 0;
-      animation: typing 4s steps(30, end) forwards, blink 0.75s step-end infinite;
-      margin-top: 10px;
-      font-size: 1em;
-      color: #0ff;
     }
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 100%; }
+
+    .glitch::before {
+      left: 2px;
+      text-shadow: -2px 0 red;
+      animation: glitchTop 1s infinite linear alternate-reverse;
     }
-    @keyframes blink {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: #fff; }
+
+    .glitch::after {
+      left: -2px;
+      text-shadow: -2px 0 blue;
+      animation: glitchBottom 1s infinite linear alternate-reverse;
     }
+
+    @keyframes glitch {
+      0% { transform: none; }
+      20% { transform: skew(-5deg); }
+      40% { transform: skew(5deg); }
+      60% { transform: none; }
+      80% { transform: skew(-2deg); }
+      100% { transform: none; }
+    }
+
+    @keyframes glitchTop {
+      0% { clip: rect(0, 9999px, 0, 0); }
+      50% { clip: rect(0, 9999px, 100%, 0); }
+      100% { clip: rect(0, 9999px, 0, 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip: rect(0, 9999px, 100%, 0); }
+      50% { clip: rect(0, 9999px, 0, 0); }
+      100% { clip: rect(0, 9999px, 100%, 0); }
+    }
+
     img {
-      margin-top: 15px;
-      max-width: 60%;
+      margin-top: 20px;
+      max-width: 90%;
       height: auto;
-      border-radius: 50%;
-      border: 3px solid #0ff;
-      box-shadow: 0 0 20px #0ff;
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 1.2em; }
-      .typing { font-size: 0.9em; }
-      img { max-width: 70%; }
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.2);
     }
   </style>
 </head>
 <body>
 
-  <!-- Start Button Screen -->
-  <div id="startScreen">
-    <button id="startBtn">💖 Tap to Begin 💖</button>
+  <!-- Start button -->
+  <button id="startBtn">💖 Start Our Love 💖</button>
+
+  <!-- Hidden container -->
+  <div class="container" id="content">
+    <h1 class="glitch" data-text="Faiz Kanana, You Own My Heart ❤️">Faiz Kanana, You Own My Heart ❤️</h1>
+    <img src="kanana.jpg" alt="Faiz Kanana">
+    <p>You make me fall in love in ways I never thought possible...</p>
   </div>
 
-  <!-- Hidden content that appears after tap -->
-  <div id="loveContent" class="hidden">
-    <h1>❤️ LOVE.EXE INSTALLED ❤️</h1>
-    <p>System Error: Brain not responding... Heart overloaded when you’re around.</p>
-    <div class="typing">💾 User: <strong>Faiz Kanana</strong> has hacked my heart permanently.</div>
-    <img src="kanana.jpg" alt="Faiz Kanana" onerror="this.style.display='none'">
-  </div>
-
-  <!-- Audio element -->
-  <audio id="bgMusic" loop>
+  <!-- Background audio -->
+  <audio id="bg-music" loop>
     <source src="song.mp3" type="audio/mpeg">
-    Your browser does not support audio.
+    Your browser does not support the audio element.
   </audio>
 
   <script>
-    const startBtn = document.getElementById('startBtn');
-    const startScreen = document.getElementById('startScreen');
-    const loveContent = document.getElementById('loveContent');
-    const bgMusic = document.getElementById('bgMusic');
+    const startBtn = document.getElementById("startBtn");
+    const content = document.getElementById("content");
+    const music = document.getElementById("bg-music");
 
-    startBtn.addEventListener('click', () => {
-      // hide start screen, show content
-      startScreen.style.display = 'none';
-      loveContent.classList.remove('hidden');
-      // try to play music
-      bgMusic.play().catch(err => {
-        console.error("Cannot autoplay:", err);
-        // maybe show a fallback message or allow her to tap again
-        // but content is already visible
-      });
+    startBtn.addEventListener("click", () => {
+      // hide button
+      startBtn.style.display = "none";
+      // show content
+      content.style.opacity = 1;
+      // play music
+      music.play().catch(err => console.log("Music blocked:", err));
     });
   </script>
 
