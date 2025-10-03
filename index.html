@@ -122,10 +122,12 @@
   <p>System Error: Brain not responding... Heart overloaded when you’re around.</p>
   <div class="typing">💾 User: <strong>Faiz Kanana</strong> has hacked my heart permanently.</div>
   
+  <!-- Your photo -->
   <img src="kanana.jpg" alt="Faiz Kanana" onerror="this.style.display='none'">
   
+  <!-- Song hosted on Google Drive -->
   <audio id="bgMusic" loop>
-    <source src="song.mp3#t=60" type="audio/mpeg">
+    <source src="https://docs.google.com/uc?export=download&id=1KemttAbgmgXluAl0yjouaaWxSGchxfIy#t=60" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
@@ -133,7 +135,7 @@
     function startLove() {
       document.getElementById("overlay").style.display = "none";
       const music = document.getElementById("bgMusic");
-      music.currentTime = 60; // jump to trending part of the song
+      music.currentTime = 60; // jump to trending part
       music.play();
     }
   </script>
