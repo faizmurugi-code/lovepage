@@ -7,17 +7,37 @@
   <style>
     body {
       margin: 0;
-      padding: 15px;
+      padding: 0;
       height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       background: #000;
       color: #fff;
       font-family: 'Courier New', Courier, monospace;
       text-align: center;
-      overflow-x: hidden;
+      overflow: hidden;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    button {
+      padding: 15px 30px;
+      background: #0ff;
+      color: #000;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background: #fff;
+      box-shadow: 0 0 20px #fff, 0 0 40px #0ff;
     }
 
     h1 {
@@ -62,35 +82,6 @@
       box-shadow: 0 0 20px #0ff;
     }
 
-    .music-controls {
-      margin-top: 20px;
-    }
-
-    button {
-      padding: 12px 25px;
-      background: #0ff;
-      color: #000;
-      border: none;
-      border-radius: 30px;
-      font-size: 1em;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
-      transition: all 0.3s ease;
-    }
-
-    button:hover {
-      background: #fff;
-      box-shadow: 0 0 20px #fff, 0 0 40px #0ff;
-    }
-
-    /* Hide SoundCloud player */
-    iframe {
-      display: none !important;
-      visibility: hidden !important;
-    }
-
-    /* Mobile scaling */
     @media (max-width: 600px) {
       h1 { font-size: 1.2em; }
       .typing { font-size: 0.9em; }
@@ -99,40 +90,40 @@
   </style>
 </head>
 <body>
-  <h1>❤️ LOVE.EXE INSTALLED ❤️</h1>
-  <p>System Error: Brain not responding... Heart overloaded when you’re around.</p>
-  <div class="typing">💾 User: <strong>Faiz Kanana</strong> has hacked my heart permanently.</div>
 
-  <img src="kanana.jpg" alt="Faiz Kanana" onerror="this.style.display='none'">
-
-  <!-- Hidden SoundCloud player -->
-  <iframe id="scPlayer" 
-    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2181843471&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false">
-  </iframe>
-
-  <!-- Play/Pause button -->
-  <div class="music-controls">
-    <button id="playBtn">▶ Play Song</button>
+  <!-- Start Button -->
+  <div id="startScreen">
+    <button id="startBtn">💖 Tap to Begin 💖</button>
   </div>
 
-  <!-- SoundCloud Widget API -->
-  <script src="https://w.soundcloud.com/player/api.js"></script>
-  <script>
-    const iframe = document.getElementById('scPlayer');
-    const playBtn = document.getElementById('playBtn');
-    const widget = SC.Widget(iframe);
+  <!-- Hidden Content -->
+  <div id="loveContent" class="hidden">
+    <h1>❤️ LOVE.EXE INSTALLED ❤️</h1>
+    <p>System Error: Brain not responding... Heart overloaded when you’re around.</p>
+    <div class="typing">💾 User: <strong>Faiz Kanana</strong> has hacked my heart permanently.</div>
+    <img src="kanana.jpg" alt="Faiz Kanana" onerror="this.style.display='none'">
+  </div>
 
-    let isPlaying = false;
-    playBtn.addEventListener('click', () => {
-      if (isPlaying) {
-        widget.pause();
-        playBtn.textContent = '▶ Play Song';
-      } else {
-        widget.play();
-        playBtn.textContent = '⏸ Pause Song';
-      }
-      isPlaying = !isPlaying;
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="song.mp3" type="audio/mpeg">
+    Your browser does not support audio.
+  </audio>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const startScreen = document.getElementById('startScreen');
+    const loveContent = document.getElementById('loveContent');
+    const bgMusic = document.getElementById('bgMusic');
+
+    startBtn.addEventListener('click', () => {
+      startScreen.style.display = 'none';
+      loveContent.classList.remove('hidden');
+      bgMusic.play().catch(err => {
+        console.log("Autoplay blocked, user must interact:", err);
+      });
     });
   </script>
+
 </body>
 </html>
