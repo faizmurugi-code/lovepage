@@ -7,7 +7,8 @@
   <style>
     body {
       margin: 0;
-      height: 100vh;
+      padding: 0;
+      height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -15,13 +16,11 @@
       background: #000;
       color: #fff;
       font-family: 'Courier New', Courier, monospace;
-      overflow: hidden;
       text-align: center;
     }
 
     h1 {
-      font-size: 3em;
-      position: relative;
+      font-size: 2.5em;
       animation: glitch 1.5s infinite;
       text-transform: uppercase;
     }
@@ -36,8 +35,8 @@
     }
 
     p {
-      margin-top: 20px;
-      font-size: 1.2em;
+      margin-top: 10px;
+      font-size: 1em;
       animation: flicker 2s infinite;
     }
 
@@ -53,7 +52,7 @@
       width: 0;
       animation: typing 4s steps(30, end) forwards, blink 0.75s step-end infinite;
       margin-top: 15px;
-      font-size: 1.5em;
+      font-size: 1.2em;
       color: #0ff;
     }
 
@@ -68,8 +67,9 @@
     }
 
     img {
-      margin-top: 25px;
-      max-width: 200px;
+      margin-top: 20px;
+      max-width: 80%;
+      height: auto;
       border-radius: 50%;
       border: 3px solid #0ff;
       box-shadow: 0 0 20px #0ff;
@@ -84,17 +84,22 @@
       80% { transform: skew(-3deg); opacity: 0.7; }
       100% { transform: none; opacity: 1; }
     }
+
+    audio {
+      margin-top: 20px;
+      width: 90%;
+      outline: none;
+    }
   </style>
 </head>
 <body>
-  <div>
-    <h1>❤️ LOVE.EXE INSTALLED ❤️</h1>
-    <p>System Error: Brain not responding... Heart overloaded when you’re around.</p>
-    <div class="typing">💾 User: <strong>Faiz Kanana</strong> has hacked my heart permanently.</div>
-    <img src="kanana.jpg" alt="Faiz Kanana">
-    <audio autoplay loop>
-      <source src="herSong.mp3" type="audio/mpeg">
-    </audio>
-  </div>
+  <h1>❤️ LOVE.EXE INSTALLED ❤️</h1>
+  <p>System Error: Brain not responding... Heart overloaded when you’re around.</p>
+  <div class="typing">💾 User: <strong>Faiz Kanana</strong> has hacked my heart permanently.</div>
+  <img src="kanana.jpg" alt="Faiz Kanana">
+  <audio controls autoplay loop>
+    <source src="song.mp3#t=60" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 </body>
 </html>
