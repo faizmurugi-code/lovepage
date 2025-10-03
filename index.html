@@ -18,11 +18,9 @@
       text-align: center;
       overflow: hidden;
     }
-
     .hidden {
       display: none;
     }
-
     button {
       padding: 15px 30px;
       background: #0ff;
@@ -30,7 +28,6 @@
       border: none;
       border-radius: 30px;
       font-size: 1.2em;
-      font-weight: bold;
       cursor: pointer;
       box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
       transition: all 0.3s ease;
@@ -39,7 +36,6 @@
       background: #fff;
       box-shadow: 0 0 20px #fff, 0 0 40px #0ff;
     }
-
     h1 {
       font-size: 1.5em;
       animation: glitch 1.5s infinite;
@@ -53,7 +49,6 @@
       80% { text-shadow: 2px 2px red, -2px -2px blue; }
       100% { text-shadow: none; }
     }
-
     .typing {
       border-right: 2px solid #fff;
       white-space: nowrap;
@@ -72,7 +67,6 @@
       0%, 100% { border-color: transparent; }
       50% { border-color: #fff; }
     }
-
     img {
       margin-top: 15px;
       max-width: 60%;
@@ -81,7 +75,6 @@
       border: 3px solid #0ff;
       box-shadow: 0 0 20px #0ff;
     }
-
     @media (max-width: 600px) {
       h1 { font-size: 1.2em; }
       .typing { font-size: 0.9em; }
@@ -91,12 +84,12 @@
 </head>
 <body>
 
-  <!-- Start Button -->
+  <!-- Start Button Screen -->
   <div id="startScreen">
     <button id="startBtn">💖 Tap to Begin 💖</button>
   </div>
 
-  <!-- Hidden Content -->
+  <!-- Hidden content that appears after tap -->
   <div id="loveContent" class="hidden">
     <h1>❤️ LOVE.EXE INSTALLED ❤️</h1>
     <p>System Error: Brain not responding... Heart overloaded when you’re around.</p>
@@ -104,7 +97,7 @@
     <img src="kanana.jpg" alt="Faiz Kanana" onerror="this.style.display='none'">
   </div>
 
-  <!-- Background Music -->
+  <!-- Audio element -->
   <audio id="bgMusic" loop>
     <source src="song.mp3" type="audio/mpeg">
     Your browser does not support audio.
@@ -117,10 +110,14 @@
     const bgMusic = document.getElementById('bgMusic');
 
     startBtn.addEventListener('click', () => {
+      // hide start screen, show content
       startScreen.style.display = 'none';
       loveContent.classList.remove('hidden');
+      // try to play music
       bgMusic.play().catch(err => {
-        console.log("Autoplay blocked, user must interact:", err);
+        console.error("Cannot autoplay:", err);
+        // maybe show a fallback message or allow her to tap again
+        // but content is already visible
       });
     });
   </script>
